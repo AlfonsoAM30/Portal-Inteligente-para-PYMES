@@ -112,7 +112,7 @@ El sistema está completamente contenedorizado para garantizar portabilidad y pe
 Proyecto desarrollado para la asignatura de Aplicaciones de la Inteligencia Artificial (Grado en IA - URJC).
 
 - Alfonso Armenta Martín: alfonsoarmentamartin@gmail.com
-- Álvaro García Velasco: alvarogarciavelasco1212@gmail.com
+- Álvaro García Velasco: alvarogarciavelasco1212@gmail.com || https://github.com/alvaroG-IA
 
 ## 📄 Licencia
 Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
