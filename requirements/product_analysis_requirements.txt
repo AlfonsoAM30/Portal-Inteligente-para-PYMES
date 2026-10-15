@@ -1,0 +1,32 @@
+# ─── CORE FRAMEWORK ───
+fastapi
+uvicorn
+pydantic
+python-dotenv
+loguru
+
+# ─── PROCESAMIENTO DE IMAGEN Y RED ───
+opencv-python-headless
+pillow
+numpy<2.0.0
+httpx
+requests
+
+# ─── PROCESAMIENTO VISUAL (CLIP) ───
+clip @ git+https://github.com/openai/CLIP.git
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers
+ftfy
+regex
+
+# ─── PROCESAMIENTO DE TEXTO (LLM / OLLAMA / NLP) ───
+ollama
+langchain-core
+langchain-community
+langchain-ollama
+keybert
+spacy==3.7.4
+es-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.7.0/es_core_news_sm-3.7.0-py3-none-any.whl
+
+# ─── ESTRUCTURAS DE DATOS (Para tus índices .bin) ───
+faiss-cpu

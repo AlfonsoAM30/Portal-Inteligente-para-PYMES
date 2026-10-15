@@ -1,0 +1,21 @@
+services:
+  nicegui-app:
+    build: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8090:8090"
+    depends_on:
+      - management-service
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./data:/app/data
+  management-service:
+    build:
+      context: .
+      dockerfile: app/services/management_service/Dockerfile
+    ports:
+      - "8091:8091"

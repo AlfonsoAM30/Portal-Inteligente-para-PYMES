@@ -1,0 +1,28 @@
+# --- Base del Microservicio ---
+fastapi
+uvicorn
+httpx
+python-dotenv
+loguru
+
+# --- Procesamiento de Imagen y Visión ---
+opencv-python-headless
+numpy
+Pillow
+
+# --- Inteligencia Artificial y Modelos Locales ---
+accelerate
+torch
+transformers
+diffusers
+faiss-cpu
+controlnet_aux
+segment_anything
+clip @ git+https://github.com/openai/CLIP.git
+
+# --- Integraciones y APIs Externas ---
+replicate
+ollama
+langchain_ollama
+pydantic
+ultralytics

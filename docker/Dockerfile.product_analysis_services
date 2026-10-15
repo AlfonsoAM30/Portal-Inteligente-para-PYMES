@@ -1,0 +1,24 @@
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    libgl1 \
+    libglib2.0-0 \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+COPY ./requirements/product_analysis_requirements.txt ./product_analysis_requirements.txt
+RUN pip install --no-cache-dir -r product_analysis_requirements.txt
+
+COPY ./app ./app
+
+RUN mkdir -p /app/logs /app/data /app/models
+
+EXPOSE 8093
+
+CMD ["uvicorn", "app.api.product_analysis_services:app", "--host", "0.0.0.0", "--port", "8093"]

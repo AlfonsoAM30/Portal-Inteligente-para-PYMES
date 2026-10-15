@@ -1,0 +1,28 @@
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    git \
+    build-essential \
+    cmake \
+    libopenblas-dev \
+    libomp-dev \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+COPY ./requirements/product_desing_requirements.txt ./product_desing_requirements.txt
+RUN pip install --no-cache-dir -r product_desing_requirements.txt
+
+COPY ./app ./app
+
+RUN mkdir -p /app/logs
+
+EXPOSE 8092
+
+CMD ["uvicorn", "app.api.product_desing_services:app", "--host", "0.0.0.0", "--port", "8092"]

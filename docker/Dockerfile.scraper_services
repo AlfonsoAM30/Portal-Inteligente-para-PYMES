@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONPATH=/app
+
+COPY . .
+
+RUN pip install fastapi playwright uvicorn loguru
+RUN playwright install --with-deps
+
+CMD ["uvicorn", "app.api.scraper_service:app", "--host", "0.0.0.0", "--port", "8095"]
